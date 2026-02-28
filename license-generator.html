@@ -8,7 +8,16 @@ const urlp = new URL(window.location);
 const params = urlp.searchParams;
 const d = new Date(params.get("date") || Date.now());
 const which = params.get("operate") === "platform" ? "Platform" : params.get("operate") === "website" ? "Website" : "Product";
-let eula = `END-USER LICENSE AGREEMENT\nLast Updated: ${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}\n\nFor clarity, the above date is expressed in the latest version of the ISO 8601 specification.\n\n${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} (the "Licensor") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").\n\n`;
+const statement = params.get("agreebutton") ? " clicking the \"I Agree\" button, visiting, interacting or " : " visiting, interacting or ";
+const statement2 = params.get("agreebutton") ? " do not click the \"I Agree\" button, and" : "";
+let eula = `END-USER LICENSE AGREEMENT
+Last Updated: ${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}
+
+For clarity, the above date is expressed in the latest version of the ISO 8601 specification.
+
+${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} (the "Licensor") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").
+
+By${statement}using our ${which}, You agree to be bound by all the Terms And Conditions, and You accept this License Agreement. If You do not agree to the Terms And Conditions or reject this License Agreement,${statement2} cease further continued use with the ${which}.`;
 const txt = document.getElementById("text");
 txt.textContent = eula;
 </script>
