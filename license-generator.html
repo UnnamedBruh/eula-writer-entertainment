@@ -1,0 +1,14 @@
+<html lang="en">
+<body>
+<p>Here is the playfully generated End-User License Agreement following your form:</p>
+<button onclick="navigator.clipboard.writeText(document.getElementById('text').textContent);">Copy Playful Agreement</button>
+<pre id="text"></pre>
+<script>
+const urlp = new URL(window.location);
+const params = urlp.searchParams;
+const d = new Date(params.get("date") || Date.now());
+const which = params.get("operate") === "platform" ? "Platform" : params.get("operate") === "website" ? "Website" : "Product";
+let eula = `END-USER LICENSE AGREEMENT\nLast Updated: ${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}\n\nFor clarity, the above date is expressed in the latest version of the ISO 8601 specification.\n\n${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} (the "Licensor") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").\n\n`;
+</script>
+</body>
+</html>
