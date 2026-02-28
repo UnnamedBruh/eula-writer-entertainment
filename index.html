@@ -1,0 +1,100 @@
+<html lang="en">
+<body>
+<div id="contents">
+	<h1>EULA Writer</h1>
+	<p>Welcome to this entertaining, <b>NOT FOR ACTUAL LICENSE AGREEMENT WRITING,</b> educational End-User License Agreement form that does not require you to pay any fees! All the legalese is handled for you. Just press the button below to begin!</p>
+	<p>If you do not know what a term means, I recommend you to search up its definition.</p>
+	<p>Oh, and also, THIS PROJECT DOESN'T SELL OR LEND ANY INFORMATION YOU GIVE IT! This means you can use this project without worrying about privacy. If you don't believe us, you may check our source code: <a href="https://github.com/UnnamedBruh/eula-writer-entertainment/">here</a>!</p>
+	<button id="begin" onclick="document.getElementById('quiz').style.display = '';">Begin!</button>
+</div>
+<div id="quiz" style="display: none">
+<form action="/license-generator.html" method="get">
+	<fieldset>
+		<legend>Basics</legend>
+		<p>What is the name of your website, or service?</p>
+		<label for="name">Name</label>
+		<input type="text" id="name" name="name" maxlength="100" placeholder="My Website" value="My Website">
+		<hr>
+		<p>Are you operating a business, website or platform/app? Or are you an individual?</p>
+		<a>I am:</a><br>
+		<input type="radio" id="operate1" name="operate" value="business">
+		<label for="operate1">A business</label>
+		<input type="radio" id="operate2" name="operate" value="platform" oninput="document.getElementById('appfield').style.display = this.checked ? '' : 'none';">
+		<label for="operate2">A platform/app</label>
+		<input type="radio" id="operate3" name="operate" value="website">
+		<label for="operate3">A website (in general)</label>
+		<input type="radio" id="operate4" name="operate" value="individual">
+		<label for="operate4">An individual</label>
+		<hr>
+		<p>Where do you live?</p>
+		<a>I live in the:</a><br>
+		<input type="radio" id="operate5" name="direction" value="ne">
+		<label for="operate5">Northeast</label>
+		<input type="radio" id="operate6" name="direction" value="nw">
+		<label for="operate6">Northwest</label>
+		<input type="radio" id="operate7" name="direction" value="se">
+		<label for="operate7">Southeast</label>
+		<input type="radio" id="operate8" name="direction" value="sw">
+		<label for="operate8">Southwest</label>
+		<hr>
+		<p>How can anyone contact you?</p>
+		<a>I can be contacted via:</a><br>
+		<input type="checkbox" id="contact1" name="contactphone">
+		<label for="contact1">Phone number</label>
+		<br>
+		<input type="checkbox" id="contact2" name="contactemail">
+		<label for="contact2">E-mail</label>
+		<br>
+		<input type="checkbox" id="contact3" name="contactyoutube">
+		<label for="contact3">YouTube</label>
+		<br>
+		<input type="checkbox" id="contact4" name="contactdiscord">
+		<label for="contact4">Discord</label>
+		<br>
+		<input type="checkbox" id="contact5" name="contactlocate">
+		<label for="contact5">Geolocation</label>
+		<br>
+		<input type="checkbox" id="contact6" name="contactnone" oninput="document.querySelectorAll('input').forEach(x => {x.disabled = this.checked && x.id !== 'contact6' && x.id.startsWith('contact');});">
+		<label for="contact6">I cannot be contacted</label>
+		<hr>
+		<p>How will you refer to "You", the people interacting with your service or app?</p>
+		<label for="firstname">"You":</label>
+		<input type="text" id="youname" name="youname" maxlength="100" placeholder="the User" value="the User">
+	</fieldset>
+	<fieldset id="appfield" style="display: none">
+		<legend>App-Specific Basics</legend>
+		<p>What is the target audience of your platform/app?</p>
+		<input type="radio" id="operate9" name="audience" value="6">
+		<label for="operate9">Primary Schoolers (6+)</label>
+		<input type="radio" id="operate10" name="audience" value="9">
+		<label for="operate10">Preteens (9+)</label>
+		<input type="radio" id="operate11" name="audience" value="13">
+		<label for="operate11">Teenagers (13+)</label>
+		<input type="radio" id="operate12" name="audience" value="16">
+		<label for="operate12">Young Adults (16+)</label>
+		<input type="radio" id="operate13" name="audience" value="18">
+		<label for="operate13">Mature Adults (18+)</label>
+		<input type="radio" id="operate14" name="audience" value="21">
+		<label for="operate14">Legally-Recognized Adults (21+)</label>
+		<hr>
+		<p>Where can this app be accessed?</p>
+		<input type="checkbox" id="appus" name="appna">
+		<label for="appna">North America</label>
+		<br>
+		<input type="checkbox" id="appas" name="appsa">
+		<label for="appsa">South America</label>
+		<br>
+		<input type="checkbox" id="appeu" name="appeurope">
+		<label for="appeu">Europe</label>
+		<br>
+		<input type="checkbox" id="appas" name="appasia">
+		<label for="appas">Asia</label>
+		<br>
+		<input type="checkbox" id="appant" name="appant" oninput="document.getElementById('appfieldantarctica').style.display = this.checked ? '' : 'none';">
+		<label for="appant">Antarctica</label>
+	</fieldset>
+	<button type="submit">Submit</button>
+</form>
+</div>
+</body>
+</html>
