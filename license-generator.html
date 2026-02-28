@@ -8,8 +8,8 @@ const urlp = new URL(window.location);
 const params = urlp.searchParams;
 const d = new Date(params.get("date") || Date.now());
 const which = params.get("operate") === "platform" ? "Platform" : params.get("operate") === "website" ? "Website" : "Product";
-const statement = params.get("agreebutton") ? " clicking the \"I Agree\" button, visiting, interacting or " : " visiting, interacting or ";
-const statement2 = params.get("agreebutton") ? " do not click the \"I Agree\" button, and" : "";
+const statement = params.get("agreebutton") === "yes" ? " clicking the \"I Agree\" button, visiting, interacting or " : " visiting, interacting or ";
+const statement2 = params.get("agreebutton") === "yes" ? " do not click the \"I Agree\" button, and" : "";
 let eula = `END-USER LICENSE AGREEMENT
 Last Updated: ${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}
 
