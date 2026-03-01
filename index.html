@@ -74,7 +74,7 @@
 		<input type="text" id="youname" name="youname" maxlength="100" placeholder="the User" value="the User">
 	</fieldset>
 	<fieldset id="appfield" style="display: none">
-		<legend>App-Specific Basics</legend>
+		<legend>App-Specific + Privacy Basics</legend>
 		<p>What is the target audience of your platform/app?</p>
 		<input type="radio" id="operate9" name="audience" value="6">
 		<label for="operate9">Primary Schoolers (6+)</label>
@@ -88,11 +88,22 @@
 		<label for="operate13">Mature Adults (18+)</label>
 		<input type="radio" id="operate14" name="audience" value="21">
 		<label for="operate14">Legally-Recognized Adults (21+)</label>
+		<input type="radio" id="operate15" name="audience" value="65">
+		<label for="operate14">Retired Adults in the U.S. (65+)</label>
+		<input type="radio" id="operate16" name="audience" value="200">
+		<label for="operate14">Gods, Goddesses and Deities (200+)</label>
 		<hr>
 		<p>Do you trust your users to provide accurate information?</p>
-		<input type="checkbox" id="trustusers" name="trustusersaccurate" oninput="this.checked && alert('oh god oh god what have you done, now youre not enforcing age limits for your HYPOTHETICAL platform that can get you lawsuits and other stuff');">
+		<input type="checkbox" id="trustusers" name="trustusersaccurate" oninput="this.checked && alert('oh god oh god what have you done, now youre not enforcing age limits for your HYPOTHETICAL platform that can get you lawsuits and other stuff');document.getElementById('facialdelete').style.display = this.checked ? 'none' : '';">
 		<label for="trustusers">I trust my users to provide accurate information regarding their age</label>
 		<hr>
+		<div id="facialdelete">
+		<p>Do you delete user data after they verify their age, via facial recognition?</p>
+		<input type="checkbox" id="trustusers2" name="deletefacedata" checked oninput="!this.checked && alert('BRO WHAT?! bruh now youre begging databreachers to leak PEOPLES FACES!!!')">
+		<label for="trustusers2">I delete facial data after users verify their age</label>
+		</div>
+		<hr>
+		</div>
 		<p>Are users fully responsible for their privacy?</p> 
 		<input type="checkbox" id="trustusers2" name="privacyliable" oninput="this.checked && alert('BRUH WHAT ARE YOU DOOOOINNNGGGG!!!!!')">
 		<label for="trustusers2">Users are always liable for making sure their data is secure, even when they don't have the right resources to do so</label>
