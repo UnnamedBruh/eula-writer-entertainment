@@ -13,8 +13,8 @@ const which = params.get("operate") === "platform" ? "Platform" : params.get("op
 const statement = params.get("agreebutton") ? ` clicking the button that is labelled "${params.get("agreebutton")}"` : (" accessing our " + which);
 const statement2 = params.get("agreebutton") ? ` do not click the button that is labelled "${params.get("agreebutton")}", and` : "";
 const isoyear = `${d.getFullYear().toString().padStart(4, "0")}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
-const models = params.get("deletefacedata") ? `We store this information ${
-	params.get("facedatadate") == 0 ? `until ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models.` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
+const models = params.get("deletefacedata") ? `We ${params.get("facedatadate") == 0 ? "delete" : "store"} this information ${
+	params.get("facedatadate") == 0 ? `after ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models.` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
 }` : ``;
 let eula = `END-USER LICENSE AGREEMENT
 Last Updated: ${isoyear}
@@ -50,7 +50,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 			!params.get("datasecure") ? (params.get("privacyliable") ? `Acknowledging Your liability, You also acknowledge that` : `However,`) : ""
 		}`
 	} ${
-		params.get("datasecure") ? "" : "We may or may not store User data securely, and data breaches may or may not be likely to occur."
+		params.get("datasecure") ? "" : "We may or may not store User data securely, and we are not concerned about data breaches that may or may not be likely to occur."
 	}`;
 	currentSection++;
 }
