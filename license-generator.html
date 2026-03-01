@@ -23,7 +23,11 @@ For clarity, the above date ${isoyear.length === 10 ? "is" : "may or may not be"
 
 ${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} ("the Licensor", "We", "Us" or "Business Entity") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").
 
-${params.get("audience") ? `You must be ${params.get("audience")} ${params.get("audience").endsWith("B.C") ? "(years Before Christ)" : "years"} or older to use our ${which}. ` : ""}By${statement}, You agree to be bound by all the Terms And Conditions, and You accept this License Agreement. If You do not agree to the Terms And Conditions, or reject this License Agreement,${statement2} do not use our ${which}.
+${params.get("audience") ? `You must be ${params.get("audience")} ${params.get("audience").endsWith("B.C") ? "(years Before Christ)" : "years"} or older to use our ${which}. ${
+	params.get("minorssupervisor") ? `If you are under 18 years of age, it is recommended that You read this License Agreement on behalf of your parent(s) or guardian(s) (the "Supervisors"). ${
+		params.get("supervisor") ? "To access our Platform, Your Supervisors must grant permission to allow Us to verify your age. We will clarify this age verification system later in this License Agreement." : ""
+	}\n\n` : ""
+}` : ""}By${statement}, You agree to be bound by all the Terms And Conditions, and You accept this License Agreement. If You do not agree to the Terms And Conditions, or reject this License Agreement,${statement2} do not use our ${which}.
 
 "Access" and all variations thereof shall mean interacting, visiting${which === "Product" ? ", viewing or purchasing" : " or viewing"} our ${which}. This definition shall apply to all uses of this term herein.`;
 
@@ -59,7 +63,7 @@ const txt = document.getElementById("text");
 txt.textContent = eula;
 const notcomplieswithCOPPA = (params.get("audience") < 13 && !params.get("audience").endsWith("B.C")) || !params.get("takeactionprivacy") || params.get("facedatadate") > 0 || !params.get("datasecure");
 const stats = document.getElementById("stats");
-stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
+stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : (params.get("minorssupervisor") && params.get("supervisor") ? "is" : "partially")) + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
 	"\n\nThe Lord Himself (Jesus Christ) will " + (!notcomplieswithCOPPA ? (
 		d.getFullYear() < 1995 ? "MAKE YOU EXPLAIN THE UNREALISTICALLY OLD LICENSE AGREEMENT 😬🦴" : (isoyear.length >= 10 ? "DEMAND WHEN THIS AGREEMENT WAS ACTUALLY WRITTEN 🫢⏱️😵‍💫" : (d.getTime() > Date.now() ? "LECTURE YOU ON ABOUT CLASSIC TIME TRAVELLING CLAIMS 😥⏱️🤖" : "DEMAND ANSWERS 🤨📿😅"))) : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
 ) : "");
