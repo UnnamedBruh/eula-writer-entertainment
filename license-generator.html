@@ -33,7 +33,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 		params.get("trustusersaccurate") ? "provide accurate, extensive and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${
 			!(params.get("facedatadate") == 0) ? models : ""
 		}We use automated face recognition models to verify Your age to ensure the safety of our End Users.${
-			params.get("facedatadate") == 0 ? " " + models : ""
+			params.get("facedatadate") == 0 && params.get("facedatadate") !== null && params.get("facedatadate") !== "" ? " " + models : ""
 		}`
 	} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${
 		!params.get("trustusersaccurate") ? `${
