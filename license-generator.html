@@ -63,7 +63,7 @@ const txt = document.getElementById("text");
 txt.textContent = eula;
 const notcomplieswithCOPPA = (params.get("audience") < 13 && !params.get("audience").endsWith("B.C")) || !params.get("takeactionprivacy") || params.get("facedatadate") > 0 || !params.get("datasecure");
 const stats = document.getElementById("stats");
-stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : (params.get("minorssupervisor") && params.get("supervisor") ? "is" : "partially")) + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
+stats.textContent = "Stats:\n\nYour company " + (params.get("audience") < 18 ? ("is" + (notcomplieswithCOPPA ? " NOT" : (params.get("minorssupervisor") && params.get("supervisor") ? (params.get("audience") < 18 ? "(?)" : "") : " partially"))) : "might not(?) have to be (BUT YOU STILL MUST RESPECT USER PRIVACY)") + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
 	"\n\nThe Lord Himself (Jesus Christ) will " + (!notcomplieswithCOPPA ? (
 		d.getFullYear() < 1995 ? "MAKE YOU EXPLAIN THE UNREALISTICALLY OLD LICENSE AGREEMENT 😬🦴" : (isoyear.length >= 10 ? "DEMAND WHEN THIS AGREEMENT WAS ACTUALLY WRITTEN 🫢⏱️😵‍💫" : (d.getTime() > Date.now() ? "LECTURE YOU ON ABOUT CLASSIC TIME TRAVELLING CLAIMS 😥⏱️🤖" : "DEMAND ANSWERS 🤨📿😅"))) : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
 ) : "");
