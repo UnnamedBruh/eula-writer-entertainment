@@ -25,7 +25,26 @@ We will extensively use the terms "access", "accessing" or "accessed" as necessa
 
 let currentSection = 1;
 if (params.get("audience") && params.get("operate") === "platform") {
-	eula += `\n\n${currentSection}. Use of the ${which}\n\nYour User Data. If You accept this License Agreement, and You are accessing our ${which}, You agree to ${params.get("trustusersaccurate") ? "provide accurate, extensive and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${params.get("deletefacedata") ? `We store this information for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and ` : ``}We use face recognition models to verify Your age to ensure the safety of our End Users.`} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${!params.get("trustusersaccurate") ? `${params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`}` : ""} If You are under ${params.get("audience")} years old, You must not access our ${which}, as attempting to access it will terminate the License Agreement between You and the Licensor.\n\nPractices Regarding User Data, and Security. ${params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.${params.get("takeactionprivacy") ? "" : " However, We cannot guarantee that We will be able to notify End Users of any potential loss or damages."}`} ${params.get("takeactionprivacy") ? `${!params.get("privacyliable") ? `To address any potential of loss or damages regarding User data, ` : ``}We will notify You of any unauthorized access or use of your personal data, or any other breach of security, as required by law.` : `${params.get("privacyliable") ? `Acknowledging Your liability, You also acknowledge that` : `However,`} We may or may not store User data securely, and We may or may not comply with laws regarding privacy and personal data.`}`;
+	eula += `\n\n${currentSection}. Use of the ${which}\n\nYour User Data. If You accept this License Agreement, and You are accessing our ${which}, You agree to ${
+		params.get("trustusersaccurate") ? "provide accurate, extensive and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${
+			params.get("deletefacedata") ? `We store this information for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and ` : ``
+		}We use face recognition models to verify Your age to ensure the safety of our End Users.`
+	} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${
+		!params.get("trustusersaccurate") ? `${params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
+		}` : ""
+	} If You are under ${params.get("audience")} years old, You must not access our ${which}, as attempting to access it will terminate the License Agreement between You and the Licensor.\n\nPractices Regarding User Data, and Security. ${
+		params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.${
+			params.get("takeactionprivacy") ? "" : " However, We cannot guarantee that We will be able to notify End Users of any potential loss or damages."
+		}`
+	} ${
+		params.get("takeactionprivacy") ? `${
+			!params.get("privacyliable") ? `To address any potential of loss or damages regarding User data, ` : ``
+		}We will notify You of any unauthorized access or use of your personal data, or any other breach of security, as required by law.` : `${
+			params.get("privacyliable") ? `Acknowledging Your liability, You also acknowledge that` : `However,`
+		} ${
+			params.get("datasecure") ? "" : "We may or may not store User data securely, and data breaches may or may not be likely to occur."
+		}`
+	}`;
 	currentSection++;
 }
 
@@ -33,7 +52,7 @@ const txt = document.getElementById("text");
 txt.textContent = eula;
 
 const stats = document.getElementById("stats");
-stats.textContent = "Stats:\n\nYour company is " + (params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") > 1 ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)";
+stats.textContent = "Stats:\n\nYour company is " + (params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") > 1 || !params.get("datasecure") ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)";
 </script>
 </body>
 </html>
