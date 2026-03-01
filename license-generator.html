@@ -41,9 +41,9 @@ if (params.get("audience") && params.get("operate") === "platform") {
 			!params.get("privacyliable") ? `To address any potential of loss or damages regarding User data, ` : ``
 		}We will notify You of any unauthorized access or use of your personal data, or any other breach of security, as required by law.` : `${
 			params.get("privacyliable") ? `Acknowledging Your liability, You also acknowledge that` : `However,`
-		} ${
-			params.get("datasecure") ? "" : "We may or may not store User data securely, and data breaches may or may not be likely to occur."
 		}`
+	} ${
+		params.get("datasecure") ? "" : "We may or may not store User data securely, and data breaches may or may not be likely to occur."
 	}`;
 	currentSection++;
 }
