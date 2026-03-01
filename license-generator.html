@@ -33,10 +33,8 @@ if (params.get("audience") && params.get("operate") === "platform") {
 		!params.get("trustusersaccurate") ? `${params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
 		}` : ""
 	}\n\nPractices Regarding User Data, and Security. ${
-		params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.${
-			params.get("takeactionprivacy") ? "" : " However, We cannot guarantee that We will be able to notify End Users of any potential loss or damages."
-		}`
-	} ${
+		params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.`
+	}${params.get("takeactionprivacy") ? "" : " We do not notify End Users of any potential loss or damages regarding their confidentiality."} ${
 		params.get("takeactionprivacy") ? `${
 			!params.get("privacyliable") ? `To address any potential of loss or damages regarding User data, ` : ``
 		}We will notify You of any unauthorized access or use of your personal data, or any other breach of security, as required by law.` : `${
