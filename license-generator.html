@@ -14,7 +14,7 @@ const statement = params.get("agreebutton") ? ` clicking the button that is labe
 const statement2 = params.get("agreebutton") ? ` do not click the button that is labelled "${params.get("agreebutton")}", and` : "";
 const isoyear = `${d.getFullYear().toString().padStart(4, "0")}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
 const models = params.get("deletefacedata") ? `We store this information ${
-	params.get("facedatadate") == 0 ? `until ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models. ` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
+	params.get("facedatadate") == 0 ? `until ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models.` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
 }` : ``;
 let eula = `END-USER LICENSE AGREEMENT
 Last Updated: ${isoyear}
@@ -54,9 +54,11 @@ if (params.get("audience") && params.get("operate") === "platform") {
 
 const txt = document.getElementById("text");
 txt.textContent = eula;
-
+const notcomplieswithCOPPA = params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") <= 0 || !params.get("datasecure");
 const stats = document.getElementById("stats");
-stats.textContent = "Stats:\n\nYour company is " + (params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") <= 0 || !params.get("datasecure") ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)";
+stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
+	"\n\nThe Lord Himself (Jesus Christ) will " + (!notcomplieswithCOPPA ? "DEMAND ANSWERS 📿😅" : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
+) : "");
 </script>
 </body>
 </html>
