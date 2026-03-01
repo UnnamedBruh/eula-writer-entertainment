@@ -13,6 +13,9 @@ const which = params.get("operate") === "platform" ? "Platform" : params.get("op
 const statement = params.get("agreebutton") ? ` clicking the button that is labelled "${params.get("agreebutton")}"` : (" accessing our " + which);
 const statement2 = params.get("agreebutton") ? ` do not click the button that is labelled "${params.get("agreebutton")}", and` : "";
 const isoyear = `${d.getFullYear().toString().padStart(4, "0")}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
+const models = params.get("deletefacedata") ? `We store this information ${
+	params.get("facedatadate") == 0 ? `until ${params.get("youname")} verifies their age through those aforementioned models. ` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
+}` : ``;
 let eula = `END-USER LICENSE AGREEMENT
 Last Updated: ${isoyear}
 
@@ -28,8 +31,10 @@ let currentSection = 1;
 if (params.get("audience") && params.get("operate") === "platform") {
 	eula += `\n\n${currentSection}. Use of the ${which}\n\nYour User Data. If You accept this License Agreement, and You are accessing our ${which}, You agree to ${
 		params.get("trustusersaccurate") ? "provide accurate, extensive and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${
-			params.get("deletefacedata") ? `We store this information for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and ` : ``
-		}We use face recognition models to verify Your age to ensure the safety of our End Users.`
+			!(params.get("facedatadate") == 0) ? models : ""
+		}We use automated face recognition models to verify Your age to ensure the safety of our End Users.${
+			params.get("facedatadate") == 0 ? " " + models : ""
+		}`
 	} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${
 		!params.get("trustusersaccurate") ? `${params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
 		}` : ""
@@ -51,7 +56,7 @@ const txt = document.getElementById("text");
 txt.textContent = eula;
 
 const stats = document.getElementById("stats");
-stats.textContent = "Stats:\n\nYour company is " + (params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") > 1 || !params.get("datasecure") ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)";
+stats.textContent = "Stats:\n\nYour company is " + (params.get("audience") < 13 || !params.get("takeactionprivacy") || params.get("facedatadate") <= 0 || !params.get("datasecure") ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)";
 </script>
 </body>
 </html>
