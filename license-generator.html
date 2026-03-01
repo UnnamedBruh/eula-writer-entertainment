@@ -36,7 +36,10 @@ if (params.get("audience") && params.get("operate") === "platform") {
 			params.get("facedatadate") == 0 ? " " + models : ""
 		}`
 	} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${
-		!params.get("trustusersaccurate") ? `${params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
+		!params.get("trustusersaccurate") ? `${
+			params.get("facedatadate") > 0 ? (
+				params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
+			) : ""
 		}` : ""
 	}\n\nPractices Regarding User Data, and Security. ${
 		params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.`
@@ -54,7 +57,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 
 const txt = document.getElementById("text");
 txt.textContent = eula;
-const notcomplieswithCOPPA = (params.get("audience") < 13 && !params.get("audience").endsWith("B.C")) || !params.get("takeactionprivacy") || params.get("facedatadate") <= 0 || !params.get("datasecure");
+const notcomplieswithCOPPA = (params.get("audience") < 13 && !params.get("audience").endsWith("B.C")) || !params.get("takeactionprivacy") || params.get("facedatadate") > 0 || !params.get("datasecure");
 const stats = document.getElementById("stats");
 stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
 	"\n\nThe Lord Himself (Jesus Christ) will " + (!notcomplieswithCOPPA ? "DEMAND ANSWERS 📿😅" : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
