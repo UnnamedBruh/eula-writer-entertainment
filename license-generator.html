@@ -14,7 +14,7 @@ const statement = params.get("agreebutton") ? ` clicking the button that is labe
 const statement2 = params.get("agreebutton") ? ` do not click the button that is labelled "${params.get("agreebutton")}", and` : "";
 const isoyear = `${d.getFullYear().toString().padStart(4, "0")}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
 const models = params.get("deletefacedata") ? `We ${params.get("facedatadate") == 0 ? "delete" : "store"} this information ${
-	params.get("facedatadate") == 0 ? `after ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models.` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and`
+	params.get("facedatadate") == 0 ? `after ${params.get("youname")} verifies, or fails to verify their age through those aforementioned models.` : `for no more than ${params.get("facedatadate")} day${params.get("facedatadate") > 1 ? 's' : ''}, and `
 }` : ``;
 let eula = `END-USER LICENSE AGREEMENT
 Last Updated: ${isoyear}
