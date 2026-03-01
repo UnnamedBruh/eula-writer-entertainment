@@ -66,7 +66,7 @@
 		<input type="checkbox" id="contact5" name="contactlocate">
 		<label for="contact5">Geolocation</label>
 		<br>
-		<input type="checkbox" id="contact6" name="contactnone" oninput="document.querySelectorAll('input').forEach(x => {x.disabled = this.checked && x.id !== 'contact6' && x.id.startsWith('contact');});">
+		<input type="checkbox" id="contact6" name="contactnone" oninput="document.querySelectorAll('input').forEach(x => {x.disabled = this.checked &amp;&amp; x.id !== 'contact6' &amp;&amp; x.id.startsWith('contact');});">
 		<label for="contact6">I cannot be contacted</label>
 		<hr>
 		<p>How will you refer to "You", the people interacting with your service or app?</p>
@@ -100,11 +100,11 @@
 		<label for="operate19">Jesus out of all Gods (5-6 B.C) 📿🤯💀</label>
 		<hr>
 		<p>Do minors (people who are under 18 years of age) have to read the EULA with their parents?</p> 
-		<input type="checkbox" id="trustusers4" name="minorssupervisor" checked oninput="document.querySelector('input[checked=&quot;true&quot;][name=&quot;audience&quot;]).value < 18 ? (!this.checked && alert('So children can access the platform without their parents\'s consent? Diabolical. Absolutely diabolical.')) : (this.checked && alert('So children might be able to access your platform even when it\'s 18+?\n\ndo you need therapy, or do you need psychiatric help? or both?'))">
+		<input type="checkbox" id="trustusers4" name="minorssupervisor" checked oninput="document.querySelector('input[checked=&quot;true&quot;][name=&quot;audience&quot;]').value < 18 ? (!this.checked && alert('So children can access the platform without their parents\'s consent? Diabolical. Absolutely diabolical.')) : (this.checked &amp;&amp; alert('So children might be able to access your platform even when it\'s 18+?\n\ndo you need therapy, or do you need psychiatric help? or both?'))">
 		<label for="trustusers4">Yes, minors have to read the EULA with their parents or guardians</label>
 		<hr>
 		<p>Do minors' parents or supervisors have to grant permission for the age verifier system (if your platform isn't 18+)?</p> 
-		<input type="checkbox" id="trustusers5" name="supervisor" checked oninput="document.querySelector('input[checked=&quot;true&quot;][name=&quot;audience&quot;]).value < 18 ? (!this.checked && alert('do you think COPPA would be happy with this?')) : (this.checked && 'If you think it will make your EULA worse, this does nothing... for now.')">
+		<input type="checkbox" id="trustusers5" name="supervisor" checked oninput="document.querySelector('input[checked=&quot;true&quot;][name=&quot;audience&quot;]').value < 18 ? (!this.checked && alert('do you think COPPA would be happy with this?')) : (this.checked &amp;&amp; 'If you think it will make your EULA worse, this does nothing... for now.')">
 		<label for="trustusers5">Yes, we extensively took action to ensure that user data is stored securely</label>
 		<hr>
 		<p>Do you trust your users to provide accurate information?</p>
@@ -113,26 +113,26 @@
 		<hr>
 		<div id="facialdelete">
 			<p>Do you delete user data after they verify their age, via facial recognition?</p>
-			<input type="checkbox" id="trustusers2" name="deletefacedata" checked oninput="!this.checked && alert('BRO WHAT?! bruh now youre begging databreachers to leak PEOPLES FACES!!!');document.getElementById('whenfacialdelete').style.display = !this.checked ? 'none' : '';document.getElementById('trustusers3').value = '';">
+			<input type="checkbox" id="trustusers2" name="deletefacedata" checked oninput="!this.checked &amp;&amp; alert('BRO WHAT?! bruh now youre begging databreachers to leak PEOPLES FACES!!!');document.getElementById('whenfacialdelete').style.display = !this.checked ? 'none' : '';document.getElementById('trustusers3').value = '';">
 			<label for="trustusers2">I delete facial data after users verify their age</label>
 			<hr>
 			<div id="whenfacialdelete">
 				<p>If so, when do you delete the facial data?</p>
-				<input type="number" id="trustusers3" name="facedatadate" min="0" max="9999" oninput="this.value == 0 && alert('*This means facial data is deleted after users verify.\n\nBUT THAT\'S GOOD, BECAUSE YOU ARE RESPECTING THEIR PRIVACY, AND STORING THEM FOR AS LONG AS ACTUALLY NECESSARY (unlike big tech companies who just hoard it for the sake of money 😭😭)')">
+				<input type="number" id="trustusers3" name="facedatadate" min="0" max="9999" oninput="this.value == 0 &amp;&amp; alert('*This means facial data is deleted after users verify.\n\nBUT THAT\'S GOOD, BECAUSE YOU ARE RESPECTING THEIR PRIVACY, AND STORING THEM FOR AS LONG AS ACTUALLY NECESSARY (unlike big tech companies who just hoard it for the sake of money 😭😭)')">
 				<label for="trustusers3">I delete it <b>within</b> that amount of days</label>
 				<hr>
 			</div>
 		</div>
 		<p>Are users fully responsible for their privacy?</p> 
-		<input type="checkbox" id="trustusers2" name="privacyliable" oninput="this.checked && alert('BRUH!!! ... well... ACTUALLY WHAT IF THEY DONT KNOW IF SOMEONE HACKED INTO THEIR ACCOUNT??')">
+		<input type="checkbox" id="trustusers2" name="privacyliable" oninput="this.checked &amp;&amp; alert('BRUH!!! ... well... ACTUALLY WHAT IF THEY DONT KNOW IF SOMEONE HACKED INTO THEIR ACCOUNT??')">
 		<label for="trustusers2">Users are always liable for making sure their data is secure, even when they don't have the right resources to do so</label>
 		<hr>
 		<p>Can you notify users when their data was breached?</p> 
-		<input type="checkbox" id="trustusers4" name="takeactionprivacy" checked oninput="!this.checked && alert('Oh, so you DON\'T care about protecting users. THAT MEANS YOU WILL FACE... consequences')">
+		<input type="checkbox" id="trustusers4" name="takeactionprivacy" checked oninput="!this.checked &amp;&amp; alert('Oh, so you DON\'T care about protecting users. THAT MEANS YOU WILL FACE... consequences')">
 		<label for="trustusers4">I can notify users if their data or account was breached</label>
 		<hr>
 		<p>Do you guarantee that your platform securely stores user data?</p> 
-		<input type="checkbox" id="trustusers3" name="datasecure" checked oninput="!this.checked && alert('Some companies choose to cross the line, BUT YOU DIDN\'T JUST CROSS IT, YOU ALSO SNAPPED IT 😱🤯')">
+		<input type="checkbox" id="trustusers3" name="datasecure" checked oninput="!this.checked &amp;&amp; alert('Some companies choose to cross the line, BUT YOU DIDN\'T JUST CROSS IT, YOU ALSO SNAPPED IT 😱🤯')">
 		<label for="trustusers3">Yes, we extensively took action to ensure that user data is stored securely</label>
 		<hr>
 		<p>Where can this app be accessed?</p>
