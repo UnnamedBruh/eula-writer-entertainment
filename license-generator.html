@@ -25,9 +25,10 @@ ${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the
 
 ${params.get("audience") ? `You must be ${params.get("audience")} ${params.get("audience").endsWith("B.C") ? "(years Before Christ)" : "years"} or older to use our ${which}. ${
 	params.get("minorssupervisor") ? `If you are under 18 years of age, it is recommended that You read this License Agreement on behalf of your parent(s) or guardian(s) (the "Supervisors"). ${
-		params.get("supervisor") ? "To access our Platform, Your Supervisors must grant permission to allow Us to verify your age. We will clarify this age verification system later in this License Agreement." : ""
+		params.get("supervisor") ? `To access our Platform, Your Supervisors must grant permission to ${
+			!params.get("trustusersaccurate") && (params.get("facedatadate") == 0 && params.get("facedatadate") !== null && params.get("facedatadate") !== "") ? "allow Us to verify your age. We will clarify this age verification system later in this License Agreement." : "allow You to access our " + which + ". We will explain the purpose of this clause later in this License Agreement."
 	}\n\n` : ""
-}` : ""}By${statement}, You agree to be bound by all the Terms And Conditions, and You accept this License Agreement. If You do not agree to the Terms And Conditions, or reject this License Agreement,${statement2} do not use our ${which}.
+}` : ""}`}By${statement}, You agree to be bound by all the Terms And Conditions, and You accept this License Agreement. If You do not agree to the Terms And Conditions, or reject this License Agreement,${statement2} do not use our ${which}.
 
 "Access" and all variations thereof shall mean interacting, visiting${which === "Product" ? ", viewing or purchasing" : " or viewing"} our ${which}. This definition shall apply to all uses of this term herein.`;
 
