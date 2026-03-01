@@ -37,7 +37,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 		}`
 	} How we store this data shall be addressed in Our Privacy Policy, and this End-User License Agreement. ${
 		!params.get("trustusersaccurate") ? `${
-			params.get("facedatadate") > 0 ? (
+			params.get("facedatadate") > 0 || params.get("facedatadate") === null ? (
 				params.get("deletefacedata") ? `After the timespan expires, the stored facial data is permanently deleted.` : `The facial data is permanently stored, and will never be deleted.`
 			) : ""
 		}` : ""
