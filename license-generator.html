@@ -12,10 +12,11 @@ const d = new Date(params.get("date") || Date.now());
 const which = params.get("operate") === "platform" ? "Platform" : params.get("operate") === "website" ? "Website" : "Product";
 const statement = params.get("agreebutton") ? ` clicking the button that is labelled "${params.get("agreebutton")}"` : (" accessing our " + which);
 const statement2 = params.get("agreebutton") ? ` do not click the button that is labelled "${params.get("agreebutton")}", and` : "";
+const isoyear = `${d.getFullYear().toString().padStart(4, "0")}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}`;
 let eula = `END-USER LICENSE AGREEMENT
-Last Updated: ${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2, "0")}
+Last Updated: ${isoyear}
 
-For clarity, the above date is expressed in the latest version of the ISO 8601 specification.
+For clarity, the above date ${isoyear.length === 10 ? "is" : "may or may not be"} expressed in the latest version of the ISO 8601 specification.${isoyear.length === 10 ? "" : " The End User is responsible for correctly interpreting the date, regardless of its ambiguity or incompliance."}
 
 ${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} ("the Licensor", "We", "Us" or "Business Entity") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").
 
