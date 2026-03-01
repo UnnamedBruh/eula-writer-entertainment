@@ -99,9 +99,15 @@
 		<hr>
 		<div id="facialdelete">
 			<p>Do you delete user data after they verify their age, via facial recognition?</p>
-			<input type="checkbox" id="trustusers2" name="deletefacedata" checked oninput="!this.checked && alert('BRO WHAT?! bruh now youre begging databreachers to leak PEOPLES FACES!!!')">
+			<input type="checkbox" id="trustusers2" name="deletefacedata" checked oninput="!this.checked && alert('BRO WHAT?! bruh now youre begging databreachers to leak PEOPLES FACES!!!');document.getElementById('whenfacialdelete').style.display = !this.checked ? 'none' : '';">
 			<label for="trustusers2">I delete facial data after users verify their age</label>
 			<hr>
+			<div id="whenfacialdelete">
+				<p>If so, when do you delete the facial data?</p>
+				<input type="number" id="trustusers3" name="facedatadate" min="1" max="">
+				<label for="trustusers3">I delete it <b>within</b> that amount of days</label>
+				<hr>
+			</div>
 		</div>
 		<p>Are users fully responsible for their privacy?</p> 
 		<input type="checkbox" id="trustusers2" name="privacyliable" oninput="this.checked && alert('BRUH WHAT ARE YOU DOOOOINNNGGGG!!!!!')">
