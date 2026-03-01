@@ -61,7 +61,7 @@ const notcomplieswithCOPPA = (params.get("audience") < 13 && !params.get("audien
 const stats = document.getElementById("stats");
 stats.textContent = "Stats:\n\nYour company is " + (notcomplieswithCOPPA ? "NOT" : "partially") + " compliant with COPPA (Children's Online Privacy Protection Act)" + (params.get("audience").endsWith("B.C") ? (
 	"\n\nThe Lord Himself (Jesus Christ) will " + (!notcomplieswithCOPPA ? (
-		d.getFullYear() < 1995 ? "MAKE YOU EXPLAIN THE DATE OF THE LICENSE AGREEMENT 😬🦴" : (d.getTime() > Date.now() ? "LECTURE YOU ON ABOUT CLASSIC TIME TRAVELLING CLAIMS 😥⏱️🤖" : "DEMAND ANSWERS 🤨📿😅")) : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
+		d.getFullYear() < 1995 ? "MAKE YOU EXPLAIN THE UNREALISTICALLY OLD LICENSE AGREEMENT 😬🦴" : (isoyear.length >= 10 ? "DEMAND WHEN THIS AGREEMENT WAS ACTUALLY WRITTEN 🫢⏱️😵‍💫" : (d.getTime() > Date.now() ? "LECTURE YOU ON ABOUT CLASSIC TIME TRAVELLING CLAIMS 😥⏱️🤖" : "DEMAND ANSWERS 🤨📿😅"))) : "GUARANTEED BANISH YOUR PLATFORM INTO HELL 🔥🔥🔥")
 ) : "");
 </script>
 </body>
