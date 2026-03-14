@@ -21,7 +21,7 @@ Last Updated: ${isoyear}
 
 For clarity, the above date ${isoyear.length === 10 ? "is" : "may or may not be"} expressed in the latest version of the ISO 8601 specification.${isoyear.length === 10 ? "" : " The End User is responsible for correctly interpreting the date, regardless of its ambiguity or incompliance."}
 
-${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} ("the Licensor", "We", "Us" or "Business Entity") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").
+${params.get("name")} ("the ${which}" or "our ${which}") is licensed to You (the "End User" or "${params.get("youname")}") by ${params.get("company")} ("the Licensor", "We", or "Us") for use only under the terms and conditions of this License Agreement (the "Terms And Conditions").
 
 ${
 	params.get("audience") ? 
@@ -39,7 +39,7 @@ ${
 let currentSection = 1;
 if (params.get("audience") && params.get("operate") === "platform") {
 	eula += `\n\n${currentSection}. Use of the ${which}\n\nYour User Data. If You accept this License Agreement, and You are accessing our ${which}, You agree to ${
-		params.get("trustusersaccurate") ? "provide accurate, extensive and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${
+		params.get("trustusersaccurate") ? "provide accurate and complete information about Yourself." : `provide accurate and complete information about Your physical facial features. ${
 			!(params.get("facedatadate") == 0) ? models : ""
 		}We use automated face recognition models to verify Your age to ensure the safety of our End Users.${
 			params.get("facedatadate") == 0 && params.get("facedatadate") !== null && params.get("facedatadate") !== "" ? " " + models : ""
@@ -51,7 +51,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 			) : ""
 		}` : ""
 	}\n\nPractices Regarding User Data, and Security. ${
-		params.get("privacyliable") ? "You are liable for maintaining the confidentiality and mandatory secrecy of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.`
+		params.get("privacyliable") ? "You are liable for maintaining the confidentiality of your personal data and Your account, and for all activities that occur therein." : `We, ${params.get("company")}, acknowledge that data breaches and unauthorized access is possible. Therefore, We take extensive action to ensure that Your data remains confidential.`
 	}${params.get("takeactionprivacy") ? "" : " We do not notify End Users of any potential loss or damages regarding their confidentiality."} ${
 		params.get("takeactionprivacy") ? `${
 			!params.get("privacyliable") ? `To address any potential of loss or damages regarding User data, ` : ``
@@ -59,7 +59,7 @@ if (params.get("audience") && params.get("operate") === "platform") {
 			!params.get("datasecure") ? (params.get("privacyliable") ? `Acknowledging Your liability, You also acknowledge that` : `However,`) : ""
 		}`
 	} ${
-		params.get("datasecure") ? "" : "We may or may not store User data securely, and we are not concerned about data breaches that may or may not be likely to occur."
+		params.get("datasecure") ? "" : "We may or may not store user data securely, and we are not concerned about data breaches that may or may not be likely to occur."
 	}`;
 	currentSection++;
 }
