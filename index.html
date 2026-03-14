@@ -111,9 +111,13 @@
 		<input type="checkbox" id="trustusers5" name="supervisor" checked oninput="[...document.querySelectorAll('input[name=&quot;audience&quot;]')].find(x=>x.checked)?.value < 18 ? (!this.checked &amp;&amp; alert('do you think COPPA would be happy with this?')) : (this.checked &amp;&amp; 'If you think it will make your EULA worse, this does nothing... for now.')">
 		<label for="trustusers5">Yes, permission must be granted for the age verification system</label>
 		<hr>
-		<p>Do you trust your users to provide accurate information?</p>
-		<input type="checkbox" id="trustusers" name="trustusersaccurate" oninput="this.checked && alert('oh god oh god what have you done, now youre not enforcing age limits for your HYPOTHETICAL platform that can get you lawsuits and other stuff');document.getElementById('facialdelete').style.display = this.checked ? 'none' : '';">
+		<p>Do you trust your users to provide accurate information? (If not, AI face verification gets involved 😭😭😭)</p>
+		<input type="checkbox" id="trustusers" name="trustusersaccurate" oninput="this.checked && alert('i don\'t know if i should be honored, or if i should raise my eyebrow. At least you are avoiding privacy risks');document.getElementById('facialdelete').style.display = this.checked ? 'none' : '';">
 		<label for="trustusers">I trust my users to provide accurate information regarding their age</label>
+		<hr>
+		<p>Should the minors' parents ground them if they access your platform without permission?</p>
+		<input type="checkbox" id="childground" name="childground">
+		<label for="childground">Yes, children should be grounded for using it without permission 👹</label>
 		<hr>
 		<div id="facialdelete">
 			<p>Do you delete user data after they verify their age, via facial recognition?</p>
